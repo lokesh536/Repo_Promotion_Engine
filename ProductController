@@ -1,0 +1,14 @@
+using System;
+public class ProductController
+{
+  private readonly IProductServiceDetails productServiceDetails;
+  public ProductController(IProductServiceDetails productServiceDetails)
+  {
+    this.productServiceDetails=productServiceDetails;
+  }
+  public ActionResult GetTotalPrice(){
+    var prodDetails=new List<ProductDetails>();
+    //Need to initialise the items based on scenarios
+    return this.productServiceDetails.GetTotalAmountOfItmes(prodDetails);
+  }
+}

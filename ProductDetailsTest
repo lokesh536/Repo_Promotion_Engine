@@ -1,0 +1,11 @@
+using System;
+
+public class ProductDetailsTest{
+private Mock<IProductServiceDetails> mockIProductServiceDetails;
+private ProductServiceDetails productServiceDetails;
+[TestInitialize]
+public void Initialize(){
+this.mockIProductServiceDetails=new Mock<IProductServiceDetails>();
+this.productServiceDetails=new ProductServiceDetails();
+}
+}

@@ -4,8 +4,138 @@ public class ProductDetailsTest{
 private Mock<IProductServiceDetails> mockIProductServiceDetails;
 private ProductServiceDetails productServiceDetails;
 [TestInitialize]
-public void Initialize(){
+public void Initialize()
+{
 this.mockIProductServiceDetails=new Mock<IProductServiceDetails>();
 this.productServiceDetails=new ProductServiceDetails();
 }
+
+[TestMethod]
+public void TestScenarioA(){
+var ProductDetails=new List<ProductDetails>();
+var productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="C"
+productInfo.Price=20;
+ProductDetails.Add(productInfo);
+
+var expectedTotalPrice=this.productServiceDetails.GetTotalPrice(ProductDetails);
+Assert.AreEqual(ProductDetails.Sum(x=>x.Price),expectedTotalPrice)
+}
+
+
+[TestMethod]
+public void TestScenarioB(){
+var ProductDetails=new List<ProductDetails>();
+var productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=20;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=10;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="C"
+productInfo.Price=20;
+ProductDetails.Add(productInfo);
+
+var expectedTotalPrice=this.productServiceDetails.GetTotalPrice(ProductDetails);
+Assert.AreEqual(ProductDetails.Sum(x=>x.Price),expectedTotalPrice)
+}
+
+[TestMethod]
+public void TestScenarioC(){
+var ProductDetails=new List<ProductDetails>();
+var productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="A"
+productInfo.Price=50;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=30;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=20;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="B"
+productInfo.Price=10;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="C"
+productInfo.Price=15;
+ProductDetails.Add(productInfo);
+productInfo=new ProductDetails();
+productInfo.ItemName ="D"
+productInfo.Price=15;
+ProductDetails.Add(productInfo);
+var expectedTotalPrice=this.productServiceDetails.GetTotalPrice(ProductDetails);
+Assert.AreEqual(ProductDetails.Sum(x=>x.Price),expectedTotalPrice)
+}
+
 }

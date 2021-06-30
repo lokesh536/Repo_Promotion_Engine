@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+public class ProductServiceDetails : IProductServiceDetails
+{
+    public int GetPriceByItemType(string itemType)
+    {
+        int itemPrice=0;
+        switch (itemType.ToUpper())
+      {
+        case "A":
+            itemPrice = 50;
+            break;
+        case "B":
+            itemPrice = 30;
+            break;
+        case "C":
+            itemPrice = 20;
+            break;
+        case "D":
+            itemPrice = 15;
+            break;
+      }
+      return itemPrice;
+    }
+    
+    public int GetTotalPrice(List<ProductDetails> products)
+{
+    int counterOfA = 0;    
+    int counterOfB = 0;    
+    int counterOfC = 0;
+    int counterOfD = 0;
+    foreach (Product productInfo in products)
+    {
+        switch (productInfo.ItemName.ToUpper())
+        {
+            case "A"
+                counterOfA += 1;
+                break;
+            case "B":
+                counterOfB += 1;
+                break;
+            case "C":
+                counterOfC += 1;
+                break;
+            case "D":
+                counterOfD += 1;
+                break;
+        }
+    }
+    int totalPriceOfA = (counterOfA / 3) * 130 + (counterOfA % 3 * this.GetPriceByItemType("A"));
+    int totalPriceOfB = (counterOfB / 2) * 45 + (counterOfB % 2 * this.GetPriceByItemType("B"));
+    int totalPriceofCD=0;
+    if(CounterofC>0 && CounterofD>0){
+				
+				while(CounterofC>0 && CounterofD>0)
+				{
+					totalPriceofCD=totalPriceofCD+30;
+					CounterofC--;
+					CounterofD--;
+				}
+			}
+    int totalPriceOfC = (counterOfC * this.GetPriceByItemType("C"));
+    int totalPriceOfD = (counterOfD * this.GetPriceByItemType("D"));    
+    return totalPriceOfA + totalPriceOfB + totalPriceOfC + totalPriceOfD +totalPriceofCD;
+}
+}

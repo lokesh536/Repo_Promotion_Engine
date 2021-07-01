@@ -3,5 +3,5 @@ using System.Collections.Generic;
 public interface IProductServiceDetails
 {
     int GetTotalAmountOfItmes(List<ProductDetails> products);
-    void GetPriceByItemType(ProductDetails productInfo)
+    int GetPriceByItemType(ProductDetails productInfo)
 }
